@@ -125,6 +125,7 @@ const PROJETOS = [
     caseImg.style.opacity = 0;
     setTimeout(() => {
       caseImg.onload = () => { fitShot(); caseImg.style.animation = 'none'; void caseImg.offsetWidth; caseImg.style.animation = ''; caseImg.style.opacity = 1; };
+      caseImg.removeAttribute('width'); caseImg.removeAttribute('height');
       caseImg.src = `img/${p.img}.webp`; caseImg.alt = `${p.k} ${p.t}`;
       if (caseImg.complete) caseImg.onload();
     }, 220);
