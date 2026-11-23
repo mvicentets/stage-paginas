@@ -1,7 +1,7 @@
 /* STAGE® — página de venda de páginas */
 
 // ▸ WhatsApp de vendas (DDI 55 + DDD + número)
-const WHATSAPP = '5567993031239';
+const WHATSAPP = '5567991697998';
 // ▸ Supabase (mesma chave pública do app): os contatos caem na aba Leads do app
 const SUPABASE = { url: 'https://bfpzjpwtzogtgwwklkjz.supabase.co', key: 'sb_publishable_S_0MZ2yopkPPBIOT3dERmw_IQPvdAzE' };
 // ▸ Pacotes e preços
