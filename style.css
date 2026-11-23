@@ -1,6 +1,6 @@
 /* STAGE® — páginas de captura e de vendas */
 :root{
-  --bg:#F6F5F2; --card:#fff; --ink:#111111; --muted:#6c6c6c; --soft:#9b9b9b; --line:rgba(17,17,17,.09);
+  --bg:#F6F5F2; --card:#fff; --ink:#111111; --muted:#6c6c6c; --soft:#9b9b9b; --soft-sm:#6b6b6b; --line:rgba(17,17,17,.09);
   --blue:#1F4BFF; --semi:#1F97FF; --green:#20FF8F; --yellow:#FFB320; --orange:#FF7F22; --red:#FF3822;
   --ease:cubic-bezier(.16,1,.3,1);
   --pad:clamp(20px,4vw,60px);
@@ -77,8 +77,8 @@ h2{font-size:clamp(36px,4.6vw,66px);line-height:1.02;letter-spacing:-.045em;font
 .rc-face.back{transform:rotateY(180deg)}
 .rc-face b{position:absolute;left:10px;bottom:10px;padding:5px 10px;border-radius:999px;background:rgba(17,17,17,.78);color:#fff;font-size:12px;font-weight:700;backdrop-filter:blur(6px)}
 .hero-foot{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 0 clamp(26px,4vh,44px)}
-.drag{display:flex;align-items:center;gap:10px;color:var(--soft);font-size:11px}
-.drag i{width:5px;height:5px;border-radius:50%;background:var(--soft)}
+.drag{display:flex;align-items:center;gap:10px;color:var(--soft-sm);font-size:11px}
+.drag i{width:5px;height:5px;border-radius:50%;background:var(--soft-sm)}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
 /* ---------- números ---------- */
@@ -269,7 +269,7 @@ h2{font-size:clamp(36px,4.6vw,66px);line-height:1.02;letter-spacing:-.045em;font
 .plan{position:relative;display:flex;flex-direction:column;padding:32px 32px 28px;border-radius:30px;background:#fff;border:1px solid var(--line)}
 .plan.featured{color:#fff;border:3px solid transparent;background:linear-gradient(var(--ink),var(--ink)) padding-box,linear-gradient(135deg,var(--green),var(--blue),var(--semi),var(--yellow),var(--orange),var(--red)) border-box}
 .plan-flag{position:absolute;top:-14px;right:26px;padding:7px 12px;border-radius:9px;background:var(--green);color:var(--ink)}
-.plan-top{display:flex;justify-content:space-between;align-items:flex-start;color:var(--soft)}
+.plan-top{display:flex;justify-content:space-between;align-items:flex-start;color:var(--soft-sm)}
 .plan-top .tag-pill{margin-bottom:0}
 .plan h3{font-size:clamp(28px,2.6vw,38px);letter-spacing:-.045em;font-weight:500;margin-top:24px}
 .plan-who{color:var(--muted);margin-top:8px;min-height:72px;font-size:16px}
@@ -314,7 +314,7 @@ h2{font-size:clamp(36px,4.6vw,66px);line-height:1.02;letter-spacing:-.045em;font
 .faq-list details{border-bottom:1px solid var(--line)}
 .faq-list summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:16px;padding:22px 4px;font-size:clamp(18px,1.6vw,22px);font-weight:500;letter-spacing:-.02em}
 .faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary .mono{color:var(--soft)}
+.faq-list summary .mono{color:var(--soft-sm)}
 .faq-list summary i{font-style:normal;color:var(--blue);font-size:20px;transition:transform .4s var(--ease)}
 .faq-list details[open] summary i{transform:rotate(90deg)}
 .faq-list p{color:var(--muted);padding:0 4px 24px 76px;max-width:720px}
@@ -379,7 +379,7 @@ h2{font-size:clamp(36px,4.6vw,66px);line-height:1.02;letter-spacing:-.045em;font
 .pk{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .pk input{position:absolute;opacity:0;pointer-events:none}
 .pk span{display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:14px;border:1px solid var(--line);font-weight:700;cursor:pointer;transition:border-color .2s,background .2s}
-.pk small{font:500 11px "JetBrains Mono",monospace;color:var(--soft);text-transform:uppercase}
+.pk small{font:500 11px "JetBrains Mono",monospace;color:var(--soft-sm);text-transform:uppercase}
 .pk input:checked+span{border-color:var(--blue);background:rgba(31,75,255,.07)}
 .pk input:focus-visible+span{outline:2px solid var(--blue)}
 .lead-copy{margin:12px 0 0}
@@ -394,7 +394,7 @@ h2{font-size:clamp(36px,4.6vw,66px);line-height:1.02;letter-spacing:-.045em;font
 .at input{padding-left:30px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .lead-err{color:var(--red);font-size:14px;min-height:20px;margin:10px 0 6px}
-.lead-note{color:var(--soft);text-align:center;margin-top:12px;font-size:12.5px}
+.lead-note{color:var(--soft-sm);text-align:center;margin-top:12px;font-size:12.5px}
 
 /* ---------- responsivo ---------- */
 @media (max-width:1100px){

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://paginas.stagemed.com.br/sitemap.xml

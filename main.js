@@ -74,8 +74,8 @@ const PROJETOS = [
     R = Math.round(((w + gap) * N) / (2 * Math.PI));
     ring.style.setProperty('--w', w + 'px'); ring.style.setProperty('--h', h + 'px');
     ring.innerHTML = ORDER.map((p, i) => `<div class="rc" data-pj="${p}" style="transform:rotateY(${(360 / N) * i}deg) translateZ(${R}px)">
-      <div class="rc-face"><img src="img/${PROJETOS[p].img}.webp" alt="" draggable="false"><b>${PROJETOS[p].t}</b></div>
-      <div class="rc-face back"><img src="img/${PROJETOS[p].img}.webp" alt="" draggable="false"><b>${PROJETOS[p].t}</b></div></div>`).join('');
+      <div class="rc-face"><img src="img/t/${PROJETOS[p].img}.webp" alt="${PROJETOS[p].k} ${PROJETOS[p].t}" width="420" height="538" draggable="false" decoding="async"><b>${PROJETOS[p].t}</b></div>
+      <div class="rc-face back" aria-hidden="true"><img src="img/t/${PROJETOS[p].img}.webp" alt="" width="420" height="538" draggable="false" decoding="async"><b>${PROJETOS[p].t}</b></div></div>`).join('');
     rCards = $$('.rc', ring);
     stage.style.height = stage.style.minHeight = (small() ? Math.round(h * 1.8) : h + 190) + 'px';
   };
@@ -257,7 +257,7 @@ const PROJETOS = [
     const path = wave.querySelectorAll('.wp')[3], box = $('.wave-thumbs', wave);
     const N = small() ? 7 : 10, L = path.getTotalLength();
     const order = wi % 2 ? [4, 6, 0, 8, 2, 5, 1, 7, 3, 0] : [0, 1, 2, 3, 4, 5, 6, 7, 8, 1];
-    box.innerHTML = Array.from({ length: N }, (_, i) => `<span class="wt" data-pj="${order[i]}"><img src="img/${PROJETOS[order[i]].img}.webp" alt=""></span>`).join('');
+    box.innerHTML = Array.from({ length: N }, (_, i) => `<span class="wt" data-pj="${order[i]}"><img src="img/t/${PROJETOS[order[i]].img}.webp" alt="" width="420" height="538" loading="lazy" decoding="async"></span>`).join('');
     const th = $$('.wt', box); let on = false; const t0 = performance.now();
     new IntersectionObserver(es => { on = es[0].isIntersecting; if (on) requestAnimationFrame(tick); }).observe(wave);
     function tick(now) {
