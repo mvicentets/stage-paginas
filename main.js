@@ -22,6 +22,11 @@ const PROJETOS = [
   { img: 'gabriela', t: 'Dra. Gabriela', k: 'Site Institucional', s: 'Saúde' }
 ];
 
+// ▸ Rastreamento: o script do STAGE LEADS (no <head>) cuida do pixel da Meta + API de conversões.
+//   PageView e Lead do formulário ele dispara sozinho; aqui mandamos o que ele não enxerga nesta página.
+window.tf = window.tf || function () { (window.tf.q = window.tf.q || []).push(arguments); };
+const track = (ev, data) => { try { window.tf('send', ev, data || {}); } catch (e) {} };
+
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -50,6 +55,7 @@ const PROJETOS = [
   };
   const pvOpen = i => {
     pvFocus = document.activeElement; pvShow(i); pv.hidden = false;
+    track('ViewContent', { content_name: PROJETOS[i] ? PROJETOS[i].t : 'Projeto', content_category: 'Portfólio' });
     if (window.__lenis) window.__lenis.stop();
     requestAnimationFrame(() => requestAnimationFrame(() => { pv.classList.add('on'); pvScroll.focus({ preventScroll: true }); }));
   };
@@ -195,6 +201,7 @@ const PROJETOS = [
     const card = PACOTES[key] ? $(`.plan[data-plan="${key}"]`) : null;
     form.copy.checked = !!(card && $('.cp', card).checked);
     syncLead(); err.textContent = ''; lead.hidden = false;
+    const pk = PACOTES[k]; track('InitiateCheckout', pk ? { content_name: pk.nome, value: pk.base, currency: 'BRL' } : { content_name: 'Ainda não sabe' });
     if (window.__lenis) window.__lenis.stop();
     requestAnimationFrame(() => requestAnimationFrame(() => { lead.classList.add('on'); setTimeout(() => form.nome.focus(), 250); }));
   };
@@ -226,6 +233,7 @@ const PROJETOS = [
       resumo = 'Ainda não sabe';
       msg = 'Olá! Vim pelo site da STAGE e quero uma página, mas ainda não sei se a de captura ou a de vendas. Pode me ajudar a escolher?';
     }
+    track('Contact', p ? { content_name: resumo, value: priceOf(k, comCopy).v, currency: 'BRL' } : { content_name: resumo }); // abriu o WhatsApp (o Lead sai automático pelo formulário)
     salvarLead({ p_nome: nome, p_whats: tel, p_insta: ig, p_plano: 'outro', p_origem: `Páginas STAGE: ${resumo} | ${origem()}`.slice(0, 200) });
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`${msg}\n\n*Nome:* ${nome}\n*WhatsApp:* ${form.whats.value}\n*Instagram:* @${ig}`)}`, '_blank', 'noopener');
     closeLead();
